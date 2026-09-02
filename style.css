@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+
+    font-size: 25px;
+    opacity: 0.7;
+
+    animation: naik linear infinite;
+}
+
+@keyframes naik {
+
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+.card {
+    width: 90%;
+    max-width: 600px;
+    min-height: 500px;
+
+    padding: 45px 30px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 10;
+
+    animation: muncul 1s ease;
+}
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 20px;
+
+    animation: denyut 1.5s infinite;
+}
+
+@keyframes denyut {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+h1 {
+    color: #ff4f70;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+#message {
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    min-height: 120px;
+
+    max-width: 480px;
+
+    white-space: pre-line;
+}
+
+.question {
+    margin-top: 20px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    color: #333;
+}
+
+
+
+.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 60px;
+}
+
+button {
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#yes {
+    background: #ff4f70;
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(255, 79, 112, 0.35);
+}
+
+#yes:hover {
+    transform: scale(1.1);
+
+    background: #ff3158;
+}
+
+#no {
+    background: #eeeeee;
+    color: #555;
+}
+
+#no:hover {
+    transform: scale(0.95);
+}
+
+.success {
+    display: none;
+
+    animation: muncul 1s ease;
+}
+
+.success h1 {
+    font-size: 38px;
+}
+
+.success p {
+    margin-top: 15px;
+
+    color: #555;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.big-heart {
+    font-size: 90px;
+
+    animation: denyut 1s infinite;
+}
+
+@media (max-width: 600px) {
+
+    .card {
+        min-height: 480px;
+
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #message {
+        font-size: 15px;
+    }
+
+    .question {
+        font-size: 19px;
+    }
+
+    button {
+        padding: 12px 25px;
+    }
+}
+
